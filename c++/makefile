@@ -1,6 +1,6 @@
+SUBDIRS = linked_lists
 
 all:
-	@cd linked_lists && $(MAKE)
-
+	$(foreach dir, $(SUBDIRS), $(MAKE) -C $(dir);)
 clean:
-	@cd linked_lists && $(MAKE) clean
+	$(foreach dir, $(SUBDIRS), cd $(dir) && $(MAKE) clean;)
